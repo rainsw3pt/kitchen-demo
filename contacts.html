@@ -19,7 +19,6 @@
       line-height: 1.6;
     }
 
-    /* Шапка — как на остальных страницах */
     header {
       background: var(--dark);
       color: #fff;
@@ -41,7 +40,6 @@
     header nav a:hover,
     header nav a.current { opacity: 1; color: var(--accent); }
 
-    /* Баннер страницы */
     .hero {
       background: linear-gradient(rgba(43,43,43,.72), rgba(43,43,43,.72)),
                   url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80') center/cover;
@@ -62,7 +60,6 @@
     }
     .hero .accent { color: var(--accent); }
 
-    /* Общие секции */
     section { max-width: 1200px; margin: 0 auto; padding: 60px 15px; }
     section > h2 {
       text-align: center;
@@ -75,7 +72,6 @@
       margin-bottom: 40px;
     }
 
-    /* Способы связи */
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -104,7 +100,6 @@
     }
     .contact-card a:hover { color: var(--accent); }
 
-    /* Информация + часы работы */
     .info-wrap {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -133,7 +128,6 @@
     .schedule td:last-child { text-align: right; color: var(--accent); font-weight: 600; }
     .schedule tr:last-child td { border-bottom: none; }
 
-    /* Карта */
     .map-section { padding-bottom: 60px; }
     .map-wrap {
       border-radius: 12px;
@@ -147,7 +141,6 @@
       border: 0;
     }
 
-    /* Форма обратной связи */
     .form-section { background: #efe9e2; max-width: none; }
     .form-wrap {
       max-width: 640px;
@@ -210,7 +203,7 @@
 <body>
 
 <header>
-  <h1>КУХНИ «ЛОФТ&amp;ДЕРЕВО»</h1>
+  <h1>КУХНИ «KitchenStudio»</h1>
   <nav>
     <a href="index.html">Каталог</a>
     <a href="design.html">Дизайн проекта</a>
@@ -218,14 +211,12 @@
   </nav>
 </header>
 
-<!-- Баннер -->
 <div class="hero">
   <h2>Мы всегда <span class="accent">на связи</span></h2>
   <p>Позвоните, напишите или просто приезжайте в салон — покажем образцы
      фасадов, столешниц и фурнитуры вживую.</p>
 </div>
 
-<!-- Способы связи -->
 <section>
   <h2>Как с нами связаться</h2>
   <p class="subtitle">Отвечаем быстро в любом удобном канале</p>
@@ -257,7 +248,6 @@
   </div>
 </section>
 
-<!-- Адрес и часы работы -->
 <section style="padding-top: 0;">
   <div class="info-wrap">
     <div class="info-block">
@@ -281,7 +271,6 @@
   </div>
 </section>
 
-<!-- Карта -->
 <section class="map-section">
   <h2>Как нас найти</h2>
   <p class="subtitle">Салон в ТЦ «Арбат», второй этаж</p>
@@ -290,7 +279,6 @@
   </div>
 </section>
 
-<!-- Форма обратной связи -->
 <section class="form-section" id="feedback">
   <div class="form-wrap">
     <h2>Напишите нам</h2>
