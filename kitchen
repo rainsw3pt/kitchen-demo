@@ -1,0 +1,1230 @@
+<h1 class="hero__title">Кухни на заказ с дизайнерским подходом</h1> 
+        <p class="hero__subtitle">Спроектируем и соберём кухню, которая будет удобной именно для вас.</p>
+  <!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог кухонь</title>
+  <style>
+    :root {
+      --accent: #b07d4f;
+      --dark: #2b2b2b;
+      --bg: #f7f4f0;
+      --card: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+    }
+
+    /* Шапка */
+    header {
+      background: var(--dark);
+      color: #fff;
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    header h1 { font-size: 26px; letter-spacing: 2px; }
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      opacity: .85;
+    }
+    header nav a:hover { opacity: 1; color: var(--accent); }
+
+    /* Фильтры */
+    .filters {
+      max-width: 1200px;
+      margin: 25px auto;
+      padding: 0 15px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 9px 20px;
+      border: 1px solid var(--accent);
+      background: transparent;
+      color: var(--dark);
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: .25s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* Каталог */
+    .catalog {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+      transition: transform .25s;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-body { padding: 16px; }
+    .card-body h3 { font-size: 18px; margin-bottom: 6px; }
+    .card-body p { font-size: 14px; color: #777; margin-bottom: 12px; }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .price { font-size: 18px; font-weight: 700; color: var(--accent); }
+    .style-tag {
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 12px;
+      background: #eee6de;
+      color: var(--dark);
+    }
+    .card button {
+      width: 100%;
+      margin-top: 14px;
+      padding: 11px;
+      border: none;
+      border-radius: 8px;
+      background: var(--dark);
+      color: #fff;
+      cursor: pointer;
+      font-size: 15px;
+      transition: .25s;
+    }
+    .card button:hover { background: var(--accent); }
+
+    footer {
+      background: var(--dark);
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      header { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>КУХНИ «KutchenStudio»</h1>
+  <nav>
+    <a href="#catalog">Каталог</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+</header>
+
+<!-- Фильтры -->
+<div class="filters">
+  <button class="filter-btn active" onclick="filterKitchens('all')">Все</button>
+  <button class="filter-btn" onclick="filterKitchens('classic')">Классика</button>
+  <button class="filter-btn" onclick="filterKitchens('modern')">Модерн</button>
+  <button class="filter-btn" onclick="filterKitchens('loft')">Лофт</button>
+</div>
+
+<!-- Каталог -->
+<section class="catalog" id="catalog">
+
+  <div class="card" data-style="classic">
+    <img src="images/1831.webp" alt="Кухня Вена">
+    <div class="card-body">
+      <h3>Кухня «Вена»</h3>
+      <p>Фасады МДФ в плёнке ПВХ, фрезеровка, столешница из искусственного камня.</p>
+      <div class="card-meta">
+        <span class="price">89 900 ₽</span>
+        <span class="style-tag">Классика</span>
+      </div>
+      <button onclick="alert('Заявка на кухню «Вена» отправлена!')">Заказать</button>
+    </div>
+  </div>
+
+  <div class="card" data-style="modern">
+    <img src="images/struna-04.jpg" alt="Кухня Струна">
+    <div class="card-body">
+      <h3>Кухня «Струна»</h3>
+      <p>Глянцевые фасады без ручек, доводчики Blum, подсветка рабочей зоны.</p>
+      <div class="card-meta">
+        <span class="price">124 500 ₽</span>
+        <span class="style-tag">Модерн</span>
+      </div>
+      <button onclick="alert('Заявка на кухню «Струна» отправлена!')">Заказать</button>
+    </div>
+  </div>
+
+  <div class="card" data-style="loft">
+    <img src="images/i.webp" alt="Кухня Индустрия">
+    <div class="card-body">
+      <h3>Кухня «Индустрия»</h3>
+      <p>Фасады под бетон и дерево, открытые металлические рейлинги, столешница-подоконник.</p>
+      <div class="card-meta">
+        <span class="price">98 000 ₽</span>
+        <span class="style-tag">Лофт</span>
+      </div>
+      <button onclick="alert('Заявка на кухню «Индустрия» отправлена!')">Заказать</button>
+    </div>
+  </div>
+
+  <div class="card" data-style="classic">
+    <img src="images/provans-potolok.jpg" alt="Кухня Прованс">
+    <div class="card-body">
+      <h3>Кухня «Прованс»</h3>
+      <p>Матовые фасады молочного цвета, патина, керамическая фурнитура.</p>
+      <div class="card-meta">
+        <span class="price">105 300 ₽</span>
+        <span class="style-tag">Классика</span>
+      </div>
+      <button onclick="alert('Заявка на кухню «Прованс» отправлена!')">Заказать</button>
+    </div>
+  </div>
+
+  <div class="card" data-style="modern">
+    <img src="images/i (1).webp" alt="Кухня Минимал">
+    <div class="card-body">
+      <h3>Кухня «Минимал»</h3>
+      <p>Прямые линии, скрытая техника, фасады из крашеного МДФ.</p>
+      <div class="card-meta">
+        <span class="price">142 000 ₽</span>
+        <span class="style-tag">Модерн</span>
+      </div>
+      <button onclick="alert('Заявка на кухню «Минимал» отправлена!')">Заказать</button>
+    </div>
+  </div>
+
+  <div class="card" data-style="loft">
+    <img src="images/i (2).webp" alt="Кухня Брик">
+    <div class="card-body">
+      <h3>Кухня «Брик»</h3>
+      <p>Акцентная кирпичная кладка, тёмный низ и светлый верх, столешница из дуба.</p>
+      <div class="card-meta">
+        <span class="price">112 700 ₽</span>
+        <span class="style-tag">Лофт</span>
+      </div>
+      <button onclick="alert('Заявка на кухню «Брик» отправлена!')">Заказать</button>
+    </div>
+  </div>
+
+</section>
+
+<footer id="contacts">
+  © 2026 Кухни «Лофт&amp;Дерево» · тел. +7 (900) 000-00-00 · г. Челябинск
+</footer>
+
+<script>
+  function filterKitchens(style) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.style.display = (style === 'all' || card.dataset.style === style) ? 'block' : 'none';
+    });
+  }
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — Кухни «KutchenStudio»</title>
+  <style>
+    :root {
+      --accent: #b07d4f;
+      --dark: #2b2b2b;
+      --bg: #f7f4f0;
+      --card: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* Шапка — как на остальных страницах */
+    header {
+      background: var(--dark);
+      color: #fff;
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    header h1 { font-size: 26px; letter-spacing: 2px; }
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      opacity: .85;
+      transition: .25s;
+    }
+    header nav a:hover,
+    header nav a.current { opacity: 1; color: var(--accent); }
+
+    /* Баннер страницы */
+    .hero {
+      background: linear-gradient(rgba(43,43,43,.72), rgba(43,43,43,.72)),
+                  url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80') center/cover;
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .hero h2 {
+      font-size: 34px;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 17px;
+      opacity: .9;
+    }
+    .hero .accent { color: var(--accent); }
+
+    /* Общие секции */
+    section { max-width: 1200px; margin: 0 auto; padding: 60px 15px; }
+    section > h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    section > .subtitle {
+      text-align: center;
+      color: #888;
+      margin-bottom: 40px;
+    }
+
+    /* Способы связи */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+    .contact-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 28px 22px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+      text-align: center;
+      transition: transform .25s;
+    }
+    .contact-card:hover { transform: translateY(-5px); }
+    .contact-card .icon {
+      font-size: 34px;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .contact-card h3 { font-size: 18px; margin-bottom: 8px; }
+    .contact-card p, .contact-card a {
+      font-size: 15px;
+      color: #777;
+      text-decoration: none;
+      display: block;
+    }
+    .contact-card a:hover { color: var(--accent); }
+
+    /* Информация + часы работы */
+    .info-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+    .info-block {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+    }
+    .info-block h3 {
+      font-size: 19px;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+    .info-block p { font-size: 15px; color: #666; margin-bottom: 10px; }
+    .schedule {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+    .schedule td { padding: 9px 0; border-bottom: 1px dashed #e5ddd4; }
+    .schedule td:last-child { text-align: right; color: var(--accent); font-weight: 600; }
+    .schedule tr:last-child td { border-bottom: none; }
+
+    /* Карта */
+    .map-section { padding-bottom: 60px; }
+    .map-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+      height: 420px;
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Форма обратной связи */
+    .form-section { background: #efe9e2; max-width: none; }
+    .form-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+      padding: 36px;
+    }
+    .form-wrap h2 { text-align: center; margin-bottom: 8px; }
+    .form-wrap .subtitle { text-align: center; color: #888; margin-bottom: 28px; }
+    .form-row { margin-bottom: 16px; }
+    label { display: block; font-size: 14px; margin-bottom: 6px; }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: inherit;
+      background: #fbfaf8;
+      transition: .25s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    textarea { resize: vertical; min-height: 90px; }
+    .form-wrap button {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 8px;
+      background: var(--dark);
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      transition: .25s;
+    }
+    .form-wrap button:hover { background: var(--accent); }
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 18px;
+    }
+    .checkbox-row input { width: auto; margin-top: 3px; }
+
+    footer {
+      background: var(--dark);
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>КУХНИ «ЛОФТ&amp;ДЕРЕВО»</h1>
+  <nav>
+    <a href="index.html">Каталог</a>
+    <a href="design.html">Дизайн проекта</a>
+    <a href="contacts.html" class="current">Контакты</a>
+  </nav>
+</header>
+
+<!-- Баннер -->
+<div class="hero">
+  <h2>Мы всегда <span class="accent">на связи</span></h2>
+  <p>Позвоните, напишите или просто приезжайте в салон — покажем образцы
+     фасадов, столешниц и фурнитуры вживую.</p>
+</div>
+
+<!-- Способы связи -->
+<section>
+  <h2>Как с нами связаться</h2>
+  <p class="subtitle">Отвечаем быстро в любом удобном канале</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="icon">✆</div>
+      <h3>Телефон</h3>
+      <a href="tel:+79000000000">+7 (900) 000-00-00</a>
+      <p>ежедневно с 9:00 до 20:00</p>
+    </div>
+    <div class="contact-card">
+      <div class="icon">✉</div>
+      <h3>Почта</h3>
+      <a href="mailto:info@loft-kitchen.ru">info@loft-kitchen.ru</a>
+      <p>ответим в течение рабочего дня</p>
+    </div>
+    <div class="contact-card">
+      <div class="icon">✎</div>
+      <h3>Мессенджеры</h3>
+      <p>+7 (900) 000-00-00</p>
+      <p>WhatsApp · Telegram</p>
+    </div>
+    <div class="contact-card">
+      <div class="icon">◎</div>
+      <h3>Соцсети</h3>
+      <p>ВКонтакте · Одноклассники</p>
+      <p>там же — наши работы и отзывы</p>
+    </div>
+  </div>
+</section>
+
+<!-- Адрес и часы работы -->
+<section style="padding-top: 0;">
+  <div class="info-wrap">
+    <div class="info-block">
+      <h3>Наш салон</h3>
+      <p><strong>Адрес:</strong> г. Челябинск, ул. Косарева, 24, ТЦ «Арбат», 2 этаж</p>
+      <p><strong>Проезд:</strong> автобусы 14, 15, 34, 64 до остановки «Улица Косарева»</p>
+      <p><strong>Парковка:</strong> бесплатная у входа в ТЦ</p>
+      <p style="margin-top:16px;">В салоне — стенды с образцами фасадов, столешниц,
+         фурнитуры Blum и полный каталог наших проектов.</p>
+    </div>
+    <div class="info-block">
+      <h3>Часы работы</h3>
+      <table class="schedule">
+        <tr><td>Понедельник — пятница</td><td>9:00 — 20:00</td></tr>
+        <tr><td>Суббота</td><td>10:00 — 19:00</td></tr>
+        <tr><td>Воскресенье</td><td>10:00 — 17:00</td></tr>
+      </table>
+      <p style="margin-top:16px;">Замерщика можно вызвать и вне графика —
+         подберём удобное время по телефону.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Карта -->
+<section class="map-section">
+  <h2>Как нас найти</h2>
+  <p class="subtitle">Салон в ТЦ «Арбат», второй этаж</p>
+  <div class="map-wrap">
+    <iframe src="https://yandex.ru/map-widget/v1/?ll=61.316%2C55.155&z=15&text=Челябинск%2C%20улица%20Косарева%2C%2024" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- Форма обратной связи -->
+<section class="form-section" id="feedback">
+  <div class="form-wrap">
+    <h2>Напишите нам</h2>
+    <p class="subtitle">Задайте вопрос — перезвоним или ответим на почту</p>
+    <form onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <label for="name">Ваше имя</label>
+        <input type="text" id="name" required placeholder="Анна">
+      </div>
+      <div class="form-row">
+        <label for="phone">Телефон</label>
+        <input type="tel" id="phone" required placeholder="+7 (___) ___-__-__">
+      </div>
+      <div class="form-row">
+        <label for="topic">Тема обращения</label>
+        <select id="topic">
+          <option selected>Заказ кухни</option>
+          <option>Дизайн-проект</option>
+          <option>Гарантия и сервис</option>
+          <option>Сотрудничество</option>
+          <option>Другое</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="message">Сообщение</label>
+        <textarea id="message" placeholder="Ваш вопрос…"></textarea>
+      </div>
+      <div class="checkbox-row">
+        <input type="checkbox" id="agree" required>
+        <label for="agree" style="margin:0;">Согласен на обработку персональных данных</label>
+      </div>
+      <button type="submit">Отправить сообщение</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © 2026 Кухни «Лофт&amp;Дерево» · тел. +7 (900) 000-00-00 · г. Челябинск
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    alert(`Спасибо, ${name}! Мы получили ваше сообщение и скоро ответим.`);
+    e.target.reset();
+  }
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дизайн проекта — Кухни Kitchen Studio</title>
+  <style>
+    :root {
+      --accent: #b07d4f;
+      --dark: #2b2b2b;
+      --bg: #f7f4f0;
+      --card: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* Шапка — как на главной */
+    header {
+      background: var(--dark);
+      color: #fff;
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    header h1 { font-size: 26px; letter-spacing: 2px; }
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      opacity: .85;
+      transition: .25s;
+    }
+    header nav a:hover,
+    header nav a.current { opacity: 1; color: var(--accent); }
+
+    /* Баннер страницы */
+    .hero {
+      background: linear-gradient(rgba(43,43,43,.72), rgba(43,43,43,.72)),
+                  url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1400&q=80') center/cover;
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .hero h2 {
+      font-size: 34px;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 17px;
+      opacity: .9;
+    }
+    .hero .accent { color: var(--accent); }
+
+    /* Общие секции */
+    section { max-width: 1200px; margin: 0 auto; padding: 60px 15px; }
+    section > h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    section > .subtitle {
+      text-align: center;
+      color: #888;
+      margin-bottom: 40px;
+    }
+
+    /* Этапы работы */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+    .step {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 28px 22px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+      position: relative;
+      transition: transform .25s;
+    }
+    .step:hover { transform: translateY(-5px); }
+    .step-num {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--accent);
+      opacity: .35;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .step h3 { font-size: 18px; margin-bottom: 8px; }
+    .step p { font-size: 14px; color: #777; }
+
+    /* Что входит в проект */
+    .included {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .included div {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 18px 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,.06);
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .included span {
+      color: var(--accent);
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    /* Тарифы */
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .plan {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 30px 24px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+      text-align: center;
+      transition: transform .25s;
+    }
+    .plan:hover { transform: translateY(-5px); }
+    .plan h3 { font-size: 20px; margin-bottom: 6px; }
+    .plan .for { font-size: 13px; color: #999; margin-bottom: 18px; }
+    .plan .price {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .plan ul {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 24px;
+    }
+    .plan li {
+      font-size: 14px;
+      padding: 7px 0;
+      border-bottom: 1px dashed #e5ddd4;
+    }
+    .plan li::before { content: '✓  '; color: var(--accent); }
+    .plan button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: var(--dark);
+      color: #fff;
+      cursor: pointer;
+      font-size: 15px;
+      transition: .25s;
+    }
+    .plan button:hover { background: var(--accent); }
+    .plan.featured {
+      border: 2px solid var(--accent);
+      position: relative;
+    }
+    .plan.featured::before {
+      content: 'Популярный';
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      padding: 3px 16px;
+      border-radius: 12px;
+      white-space: nowrap;
+    }
+
+    /* Портфель до/после */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 25px;
+    }
+    .work {
+      background: var(--card);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+    }
+    .work img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .work-body { padding: 16px; }
+    .work-body h3 { font-size: 17px; margin-bottom: 4px; }
+    .work-body p { font-size: 13px; color: #888; }
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 12px;
+      background: #eee6de;
+      margin-top: 10px;
+    }
+
+    /* Форма заявки */
+    .form-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+      padding: 36px;
+    }
+    .form-wrap h2 { text-align: center; margin-bottom: 8px; }
+    .form-wrap .subtitle { text-align: center; color: #888; margin-bottom: 28px; }
+    .form-row { margin-bottom: 16px; }
+    label { display: block; font-size: 14px; margin-bottom: 6px; }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: inherit;
+      background: #fbfaf8;
+      transition: .25s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    textarea { resize: vertical; min-height: 90px; }
+    .form-wrap button {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 8px;
+      background: var(--dark);
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      transition: .25s;
+    }
+    .form-wrap button:hover { background: var(--accent); }
+
+    footer {
+      background: var(--dark);
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>КУХНИ «KutchenStudio»</h1>
+  <nav>
+    <a href="index.html">Каталог</a>
+    <a href="design.html" class="current">Дизайн проекта</a>
+    <a href="#order">Контакты</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h2>Дизайн-проект <span class="accent">в подарок</span> при заказе кухни</h2>
+  <p>Наш дизайнер измерит помещение, покажет кухню в 3D ещё до начала производства
+     и подберёт материалы под ваш бюджет. Вы увидите результат до того,
+     как мы распилим первую плиту.</p>
+</div>
+
+<section id="steps">
+  <h2>Как мы работаем</h2>
+  <p class="subtitle">Пять шагов от идеи до готовой кухни</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Замер и консультация</h3>
+      <p>Приезжаем с дальномером, снимаем размеры, обсуждаем сценарии готовки и хранения.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>Эскиз и планировка</h3>
+      <p>Готовим 2–3 варианта расстановки модулей с учётом техники, вентиляции и розеток.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>3D-визуализация</h3>
+      <p>Показываем кухню в фотореалистичной 3D-сцене: фасады, столешница, свет и декор.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3>Смета и производство</h3>
+      <p>Фиксируем цену в договоре, изготавливаем корпус и фасады на собственном цехе.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">05</div>
+      <h3>Монтаж и гарантия</h3>
+      <p>Собираем, подключаем технику, вывозим упаковку. Гарантия на гарнитур — 5 лет.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:#efe9e2;">
+  <h2>Что входит в дизайн-проект</h2>
+  <p class="subtitle">Всё необходимое, чтобы не переделывать после установки</p>
+  <div class="included">
+    <div><span>▦</span> Обмерный план и план расстановки мебели</div>
+    <div><span>◧</span> Развёртки стен с розетками и выводами воды</div>
+    <div><span>◫</span> Схема освещения и подсветки рабочей зоны</div>
+    <div><span>✎</span> Спецификация материалов и фурнитуры</div>
+    <div><span>◫</span> Фотореалистичная 3D-визуализация кухни</div>
+    <div><span>≡</span> Чертежи для производства и монтажа</div>
+  </div>
+</section>
+
+<section id="pricing">
+  <h2>Тарифы на дизайн-проект</h2>
+  <p class="subtitle">Стоимость проекта компенсируем при заказе кухни от 90 000 ₽</p>
+  <div class="pricing">
+    <div class="plan">
+      <h3>Эскиз</h3>
+      <p class="for">быстрое решение для типовой кухни</p>
+      <div class="price">4 900 ₽</div>
+      <ul>
+        <li>План расстановки модулей</li>
+        <li>Подбор фасадов и столешницы</li>
+        <li>Смета на кухню по эскизу</li>
+        <li>1 правка планировки</li>
+      </ul>
+      <button onclick="alert('Тариф «Эскиз»: заявка отправлена!')">Выбрать</button>
+    </div>
+
+    <div class="plan featured">
+      <h3>Стандарт</h3>
+      <p class="for">полный проект «под ключ»</p>
+      <div class="price">12 900 ₽</div>
+      <ul>
+        <li>Всё из тарифа «Эскиз»</li>
+        <li>Фотореалистичная 3D-визуализация</li>
+        <li>Развёртки стен и схема электрики</li>
+        <li>Подбор техники и вытяжки</li>
+        <li>3 правки планировки</li>
+      </ul>
+      <button onclick="alert('Тариф «Стандарт»: заявка отправлена!')">Выбрать</button>
+    </div>
+
+    <div class="plan">
+      <h3>Кухня + гостиная</h3>
+      <p class="for">единое пространство студии</p>
+      <div class="price">19 900 ₽</div>
+      <ul>
+        <li>Всё из тарифа «Стандарт»</li>
+        <li>Кухня + зона гостиной в одной сцене</li>
+        <li>Подбор декора и текстиля</li>
+        <li>Неограниченные правки</li>
+      </ul>
+      <button onclick="alert('Тариф «Кухня + гостиная»: заявка отправлена!')">Выбрать</button>
+    </div>
+  </div>
+</section>
+
+<!-- Примеры работ -->
+<section id="works">
+  <h2>Наши проекты</h2>
+  <p class="subtitle">Кухни, которые мы спроектировали и установили</p>
+  <div class="gallery">
+    <div class="work">
+      <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80" alt="Проект «Угловая классика»">
+      <div class="work-body">
+        <h3>Угловая классика, 9 м²</h3>
+        <p>Тариф «Стандарт» · 3D-визуализация · срок проекта 7 дней</p>
+        <span class="badge">Классика</span>
+      </div>
+    </div>
+    <div class="work">
+      <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?w=700&q=80" alt="Проект «Студия-модерн»">
+      <div class="work-body">
+        <h3>Студия-модерн, 24 м²</h3>
+        <p>Тариф «Кухня + гостиная» · остров + барная стойка</p>
+        <span class="badge">Модерн</span>
+      </div>
+    </div>
+    <div class="work">
+      <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700&q=80" alt="Проект «Лофт в хрущёвке»">
+      <div class="work-body">
+        <h3>Лофт в хрущёвке, 6,5 м²</h3>
+        <p>Тариф «Эскиз» · открытые рейлинги, тёмный низ</p>
+        <span class="badge">Лофт</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Форма заявки -->
+<section id="order" style="background:#efe9e2; max-width:none;">
+  <div class="form-wrap">
+    <h2>Записаться на бесплатный замер</h2>
+    <p class="subtitle">Дизайнер приедет в удобное время и привезёт каталоги</p>
+    <form onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <label for="name">Ваше имя</label>
+        <input type="text" id="name" required placeholder="Анна">
+      </div>
+      <div class="form-row">
+        <label for="phone">Телефон</label>
+        <input type="tel" id="phone" required placeholder="+7 (___) ___-__-__">
+      </div>
+      <div class="form-row">
+        <label for="plan">Интересующий тариф</label>
+        <select id="plan">
+          <option>Эскиз — 4 900 ₽</option>
+          <option selected>Стандарт — 12 900 ₽</option>
+          <option>Кухня + гостиная — 19 900 ₽</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="comment">Комментарий</label>
+        <textarea id="comment" placeholder="Площадь кухни, пожелания, сроки…"></textarea>
+      </div>
+      <button type="submit">Отправить заявку</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © 2026 Кухни «Лофт&amp;Дерево» · тел. +7 (900) 000-00-00 · г. Челябинск
+</footer>
+
+<script>
+  function filterKitchens(style) {} /* заглушка — на этой странице не нужна */
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    alert(`Спасибо, ${name}! Мы перезвоним вам в течение 15 минут.`);
+    e.target.reset();
+  }
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kitchen Studio — кухни на заказ и дизайн-проекты</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header__container">
+      <div class="header__inner">
+        <a href="/" class="logo">Kitchen<span>Studio</span></a>
+        <nav class="nav">
+          <a href="/catalog">Каталог кухонь</a>
+          <a href="/design">Дизайн-проект</a>
+          <a href="/contacts">Контакты</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero__content">
+        <ul class="hero__list">
+    <h1 class="hero__title">Кухни на заказ с дизайнерским подходом</h1> 
+        <p class="hero__subtitle">Спроектируем и соберём кухню, которая будет удобной именно для вас.</p>
+    <fieldset>
+      <h2 class="hero__title">Почему именно мы?</h2>
+          <li>Удобство и простота</li>
+          <li>Индивидуальный подход</li>
+          <li>Самые выгодные предложения на рынке</li>
+        </fieldset>
+        </ul>
+      </div>
+<footer>
+  РАБОТА ДЛЯ ПОРТФОЛИО №1
+</footer>
+    </section>
+  </main>
+</body>
+</html>
+
+
+/* Базовые цвета — легко поменять в одном месте */
+:root {
+  --header-bg: #3a3f4e;          /* тёмно‑серый фон шапки */
+  --text-main: #f5f6fa;          /* светлый текст для контраста */
+  --text-muted: #bcc2cc;         /* приглушённый серый для неактивных пунктов */
+  --accent-orange: #ff8c00;      /* тёплый оранжевый акцент */
+  --accent-hover: #e67e00;       /* чуть темнее при наведении */
+}
+
+.header {
+  background-color: var(--header-bg);
+  padding: 0;
+  margin: 0;
+}
+
+.header__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px; /* фиксированная высота шапки */
+}
+
+/* Логотип */
+.logo {
+  font-family: "Inter", "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--text-main);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.logo span {
+  color: var(--accent-orange); /* оранжевая часть KitchenStudio */
+}
+
+/* Навигация */
+.nav {
+  display: flex;
+  gap: 32px;
+  list-style: none; /* если nav — ul, иначе убери */
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-family: "Inter", "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--text-main);
+  text-shadow: 0 0 8px rgba(255, 140, 0, 0.4); /* лёгкое свечение оранжевого */
+}
+
+/* Адаптив: на мобильных меню можно сделать бургер или просто уменьшить отступы */
+@media (max-width: 768px) {
+  .header__inner {
+    flex-direction: column;
+    height: auto;
+    padding: 16px 0;
+  }
+
+  .nav {
+    margin-top: 16px;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+}
+
+.hero {
+  background-image: url("images/33211f18e66e11f18daba2d9c9abc235_1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 12, 16, 0.45); /* затемнение, можно 0.25–0.35 */
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  padding: 120px 60px;
+}
+
+.hero__title {
+  font-family: "Inter", "Roboto", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  margin-bottom: 40px;
+}
+
+.hero__list {
+  list-style: none;
+  font-family: "Inter", "Roboto", Arial, sans-serif;
+  font-size: 22px;
+  line-height: 1.5;
+  color: #e8ebef;
+}
+
+.hero__list li {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(168, 192, 214, 0.5);
+}
+
+.hero__list li:last-child {
+  border-bottom: none;
+}
