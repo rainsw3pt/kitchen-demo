@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kitchen Studio — кухни на заказ и дизайн-проекты</title>
-<style>
-:root {
+  <style>
+    :root {
   --header-bg: #3a3f4e;          
-  --text-main: #f5f6fa;         
-  --text-muted: #bcc2cc;         
-  --accent-orange: #ff8c00;     
+  --text-main: #f5f6fa;          
+  --text-muted: #bcc2cc;        
+  --accent-orange: #ff8c00;      
   --accent-hover: #e67e00;       
 }
 
@@ -29,10 +29,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px; 
+  height: 70px; /* фиксированная высота шапки */
 }
 
-
+/* Логотип */
 .logo {
   font-family: "Inter", "Roboto", sans-serif;
   font-weight: 700;
@@ -46,11 +46,11 @@
   color: var(--accent-orange); 
 }
 
-
+/* Навигация */
 .nav {
   display: flex;
   gap: 32px;
-  list-style: none; 
+  list-style: none;
 }
 
 .nav a {
@@ -65,8 +65,9 @@
 .nav a:hover,
 .nav a.active {
   color: var(--text-main);
-  text-shadow: 0 0 8px rgba(255, 140, 0, 0.4); /* лёгкое свечение оранжевого */
+  text-shadow: 0 0 8px rgba(255, 140, 0, 0.4); 
 }
+
 
 @media (max-width: 768px) {
   .header__inner {
@@ -103,13 +104,11 @@
   background: rgba(10, 12, 16, 0.45); 
 }
 
-
-.hero-content {
-    background: rgba(61, 40, 23, 0.55);   
-    padding: 40px 50px;
-    border-radius: 16px;                 
-    max-width: 600px;
-    margin: 0 auto;                       
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  padding: 120px 60px;
 }
 
 .hero__title {
@@ -138,7 +137,7 @@
   border-bottom: none;
 }
 
-</style>
+  </style>
 </head>
 <body>
   <header class="header">
@@ -159,7 +158,7 @@
         <ul class="hero__list">
     <h1 class="hero__title">Кухни на заказ с дизайнерским подходом</h1> 
         <p class="hero__subtitle">Спроектируем и соберём кухню, которая будет удобной именно для вас.</p>
-          <fieldset>
+    <fieldset>
       <h2 class="hero__title">Почему именно мы?</h2>
           <li>Удобство и простота</li>
           <li>Индивидуальный подход</li>
@@ -174,4 +173,3 @@
   </main>
 </body>
 </html>
-
