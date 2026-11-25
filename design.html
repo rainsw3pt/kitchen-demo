@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дизайн проекта — Кухни Kitchen Studio</title>
+  <style>
+    :root {
+      --accent: #b07d4f;
+      --dark: #2b2b2b;
+      --bg: #f7f4f0;
+      --card: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* Шапка — как на главной */
+    header {
+      background: var(--dark);
+      color: #fff;
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    header h1 { font-size: 26px; letter-spacing: 2px; }
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      opacity: .85;
+      transition: .25s;
+    }
+    header nav a:hover,
+    header nav a.current { opacity: 1; color: var(--accent); }
+
+    /* Баннер страницы */
+    .hero {
+      background: linear-gradient(rgba(43,43,43,.72), rgba(43,43,43,.72)),
+                  url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1400&q=80') center/cover;
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .hero h2 {
+      font-size: 34px;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 17px;
+      opacity: .9;
+    }
+    .hero .accent { color: var(--accent); }
+
+    /* Общие секции */
+    section { max-width: 1200px; margin: 0 auto; padding: 60px 15px; }
+    section > h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    section > .subtitle {
+      text-align: center;
+      color: #888;
+      margin-bottom: 40px;
+    }
+
+    /* Этапы работы */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+    .step {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 28px 22px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+      position: relative;
+      transition: transform .25s;
+    }
+    .step:hover { transform: translateY(-5px); }
+    .step-num {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--accent);
+      opacity: .35;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .step h3 { font-size: 18px; margin-bottom: 8px; }
+    .step p { font-size: 14px; color: #777; }
+
+    /* Что входит в проект */
+    .included {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .included div {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 18px 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,.06);
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .included span {
+      color: var(--accent);
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    /* Тарифы */
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .plan {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 30px 24px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+      text-align: center;
+      transition: transform .25s;
+    }
+    .plan:hover { transform: translateY(-5px); }
+    .plan h3 { font-size: 20px; margin-bottom: 6px; }
+    .plan .for { font-size: 13px; color: #999; margin-bottom: 18px; }
+    .plan .price {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .plan ul {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 24px;
+    }
+    .plan li {
+      font-size: 14px;
+      padding: 7px 0;
+      border-bottom: 1px dashed #e5ddd4;
+    }
+    .plan li::before { content: '✓  '; color: var(--accent); }
+    .plan button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: var(--dark);
+      color: #fff;
+      cursor: pointer;
+      font-size: 15px;
+      transition: .25s;
+    }
+    .plan button:hover { background: var(--accent); }
+    .plan.featured {
+      border: 2px solid var(--accent);
+      position: relative;
+    }
+    .plan.featured::before {
+      content: 'Популярный';
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      padding: 3px 16px;
+      border-radius: 12px;
+      white-space: nowrap;
+    }
+
+    /* Портфель до/после */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 25px;
+    }
+    .work {
+      background: var(--card);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+    }
+    .work img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .work-body { padding: 16px; }
+    .work-body h3 { font-size: 17px; margin-bottom: 4px; }
+    .work-body p { font-size: 13px; color: #888; }
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 12px;
+      background: #eee6de;
+      margin-top: 10px;
+    }
+
+    /* Форма заявки */
+    .form-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+      padding: 36px;
+    }
+    .form-wrap h2 { text-align: center; margin-bottom: 8px; }
+    .form-wrap .subtitle { text-align: center; color: #888; margin-bottom: 28px; }
+    .form-row { margin-bottom: 16px; }
+    label { display: block; font-size: 14px; margin-bottom: 6px; }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: inherit;
+      background: #fbfaf8;
+      transition: .25s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    textarea { resize: vertical; min-height: 90px; }
+    .form-wrap button {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 8px;
+      background: var(--dark);
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      transition: .25s;
+    }
+    .form-wrap button:hover { background: var(--accent); }
+
+    footer {
+      background: var(--dark);
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>КУХНИ «KutchenStudio»</h1>
+  <nav>
+    <a href="index.html">Каталог</a>
+    <a href="design.html" class="current">Дизайн проекта</a>
+    <a href="#order">Контакты</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h2>Дизайн-проект <span class="accent">в подарок</span> при заказе кухни</h2>
+  <p>Наш дизайнер измерит помещение, покажет кухню в 3D ещё до начала производства
+     и подберёт материалы под ваш бюджет. Вы увидите результат до того,
+     как мы распилим первую плиту.</p>
+</div>
+
+<section id="steps">
+  <h2>Как мы работаем</h2>
+  <p class="subtitle">Пять шагов от идеи до готовой кухни</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Замер и консультация</h3>
+      <p>Приезжаем с дальномером, снимаем размеры, обсуждаем сценарии готовки и хранения.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>Эскиз и планировка</h3>
+      <p>Готовим 2–3 варианта расстановки модулей с учётом техники, вентиляции и розеток.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>3D-визуализация</h3>
+      <p>Показываем кухню в фотореалистичной 3D-сцене: фасады, столешница, свет и декор.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3>Смета и производство</h3>
+      <p>Фиксируем цену в договоре, изготавливаем корпус и фасады на собственном цехе.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">05</div>
+      <h3>Монтаж и гарантия</h3>
+      <p>Собираем, подключаем технику, вывозим упаковку. Гарантия на гарнитур — 5 лет.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:#efe9e2;">
+  <h2>Что входит в дизайн-проект</h2>
+  <p class="subtitle">Всё необходимое, чтобы не переделывать после установки</p>
+  <div class="included">
+    <div><span>▦</span> Обмерный план и план расстановки мебели</div>
+    <div><span>◧</span> Развёртки стен с розетками и выводами воды</div>
+    <div><span>◫</span> Схема освещения и подсветки рабочей зоны</div>
+    <div><span>✎</span> Спецификация материалов и фурнитуры</div>
+    <div><span>◫</span> Фотореалистичная 3D-визуализация кухни</div>
+    <div><span>≡</span> Чертежи для производства и монтажа</div>
+  </div>
+</section>
+
+<section id="pricing">
+  <h2>Тарифы на дизайн-проект</h2>
+  <p class="subtitle">Стоимость проекта компенсируем при заказе кухни от 90 000 ₽</p>
+  <div class="pricing">
+    <div class="plan">
+      <h3>Эскиз</h3>
+      <p class="for">быстрое решение для типовой кухни</p>
+      <div class="price">4 900 ₽</div>
+      <ul>
+        <li>План расстановки модулей</li>
+        <li>Подбор фасадов и столешницы</li>
+        <li>Смета на кухню по эскизу</li>
+        <li>1 правка планировки</li>
+      </ul>
+      <button onclick="alert('Тариф «Эскиз»: заявка отправлена!')">Выбрать</button>
+    </div>
+
+    <div class="plan featured">
+      <h3>Стандарт</h3>
+      <p class="for">полный проект «под ключ»</p>
+      <div class="price">12 900 ₽</div>
+      <ul>
+        <li>Всё из тарифа «Эскиз»</li>
+        <li>Фотореалистичная 3D-визуализация</li>
+        <li>Развёртки стен и схема электрики</li>
+        <li>Подбор техники и вытяжки</li>
+        <li>3 правки планировки</li>
+      </ul>
+      <button onclick="alert('Тариф «Стандарт»: заявка отправлена!')">Выбрать</button>
+    </div>
+
+    <div class="plan">
+      <h3>Кухня + гостиная</h3>
+      <p class="for">единое пространство студии</p>
+      <div class="price">19 900 ₽</div>
+      <ul>
+        <li>Всё из тарифа «Стандарт»</li>
+        <li>Кухня + зона гостиной в одной сцене</li>
+        <li>Подбор декора и текстиля</li>
+        <li>Неограниченные правки</li>
+      </ul>
+      <button onclick="alert('Тариф «Кухня + гостиная»: заявка отправлена!')">Выбрать</button>
+    </div>
+  </div>
+</section>
+
+<!-- Примеры работ -->
+<section id="works">
+  <h2>Наши проекты</h2>
+  <p class="subtitle">Кухни, которые мы спроектировали и установили</p>
+  <div class="gallery">
+    <div class="work">
+      <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80" alt="Проект «Угловая классика»">
+      <div class="work-body">
+        <h3>Угловая классика, 9 м²</h3>
+        <p>Тариф «Стандарт» · 3D-визуализация · срок проекта 7 дней</p>
+        <span class="badge">Классика</span>
+      </div>
+    </div>
+    <div class="work">
+      <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?w=700&q=80" alt="Проект «Студия-модерн»">
+      <div class="work-body">
+        <h3>Студия-модерн, 24 м²</h3>
+        <p>Тариф «Кухня + гостиная» · остров + барная стойка</p>
+        <span class="badge">Модерн</span>
+      </div>
+    </div>
+    <div class="work">
+      <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700&q=80" alt="Проект «Лофт в хрущёвке»">
+      <div class="work-body">
+        <h3>Лофт в хрущёвке, 6,5 м²</h3>
+        <p>Тариф «Эскиз» · открытые рейлинги, тёмный низ</p>
+        <span class="badge">Лофт</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Форма заявки -->
+<section id="order" style="background:#efe9e2; max-width:none;">
+  <div class="form-wrap">
+    <h2>Записаться на бесплатный замер</h2>
+    <p class="subtitle">Дизайнер приедет в удобное время и привезёт каталоги</p>
+    <form onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <label for="name">Ваше имя</label>
+        <input type="text" id="name" required placeholder="Анна">
+      </div>
+      <div class="form-row">
+        <label for="phone">Телефон</label>
+        <input type="tel" id="phone" required placeholder="+7 (___) ___-__-__">
+      </div>
+      <div class="form-row">
+        <label for="plan">Интересующий тариф</label>
+        <select id="plan">
+          <option>Эскиз — 4 900 ₽</option>
+          <option selected>Стандарт — 12 900 ₽</option>
+          <option>Кухня + гостиная — 19 900 ₽</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="comment">Комментарий</label>
+        <textarea id="comment" placeholder="Площадь кухни, пожелания, сроки…"></textarea>
+      </div>
+      <button type="submit">Отправить заявку</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © 2026 Кухни «Лофт&amp;Дерево» · тел. +7 (900) 000-00-00 · г. Челябинск
+</footer>
+
+<script>
+  function filterKitchens(style) {} /* заглушка — на этой странице не нужна */
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    alert(`Спасибо, ${name}! Мы перезвоним вам в течение 15 минут.`);
+    e.target.reset();
+  }
+</script>
+
+</body>
+</html>

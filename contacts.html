@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — Кухни «KutchenStudio»</title>
+  <style>
+    :root {
+      --accent: #b07d4f;
+      --dark: #2b2b2b;
+      --bg: #f7f4f0;
+      --card: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* Шапка — как на остальных страницах */
+    header {
+      background: var(--dark);
+      color: #fff;
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    header h1 { font-size: 26px; letter-spacing: 2px; }
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      opacity: .85;
+      transition: .25s;
+    }
+    header nav a:hover,
+    header nav a.current { opacity: 1; color: var(--accent); }
+
+    /* Баннер страницы */
+    .hero {
+      background: linear-gradient(rgba(43,43,43,.72), rgba(43,43,43,.72)),
+                  url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80') center/cover;
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .hero h2 {
+      font-size: 34px;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 17px;
+      opacity: .9;
+    }
+    .hero .accent { color: var(--accent); }
+
+    /* Общие секции */
+    section { max-width: 1200px; margin: 0 auto; padding: 60px 15px; }
+    section > h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    section > .subtitle {
+      text-align: center;
+      color: #888;
+      margin-bottom: 40px;
+    }
+
+    /* Способы связи */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+    .contact-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 28px 22px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+      text-align: center;
+      transition: transform .25s;
+    }
+    .contact-card:hover { transform: translateY(-5px); }
+    .contact-card .icon {
+      font-size: 34px;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .contact-card h3 { font-size: 18px; margin-bottom: 8px; }
+    .contact-card p, .contact-card a {
+      font-size: 15px;
+      color: #777;
+      text-decoration: none;
+      display: block;
+    }
+    .contact-card a:hover { color: var(--accent); }
+
+    /* Информация + часы работы */
+    .info-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+    .info-block {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+    }
+    .info-block h3 {
+      font-size: 19px;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+    .info-block p { font-size: 15px; color: #666; margin-bottom: 10px; }
+    .schedule {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+    .schedule td { padding: 9px 0; border-bottom: 1px dashed #e5ddd4; }
+    .schedule td:last-child { text-align: right; color: var(--accent); font-weight: 600; }
+    .schedule tr:last-child td { border-bottom: none; }
+
+    /* Карта */
+    .map-section { padding-bottom: 60px; }
+    .map-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+      height: 420px;
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Форма обратной связи */
+    .form-section { background: #efe9e2; max-width: none; }
+    .form-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+      padding: 36px;
+    }
+    .form-wrap h2 { text-align: center; margin-bottom: 8px; }
+    .form-wrap .subtitle { text-align: center; color: #888; margin-bottom: 28px; }
+    .form-row { margin-bottom: 16px; }
+    label { display: block; font-size: 14px; margin-bottom: 6px; }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: inherit;
+      background: #fbfaf8;
+      transition: .25s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    textarea { resize: vertical; min-height: 90px; }
+    .form-wrap button {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 8px;
+      background: var(--dark);
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      transition: .25s;
+    }
+    .form-wrap button:hover { background: var(--accent); }
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 18px;
+    }
+    .checkbox-row input { width: auto; margin-top: 3px; }
+
+    footer {
+      background: var(--dark);
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>КУХНИ «ЛОФТ&amp;ДЕРЕВО»</h1>
+  <nav>
+    <a href="index.html">Каталог</a>
+    <a href="design.html">Дизайн проекта</a>
+    <a href="contacts.html" class="current">Контакты</a>
+  </nav>
+</header>
+
+<!-- Баннер -->
+<div class="hero">
+  <h2>Мы всегда <span class="accent">на связи</span></h2>
+  <p>Позвоните, напишите или просто приезжайте в салон — покажем образцы
+     фасадов, столешниц и фурнитуры вживую.</p>
+</div>
+
+<!-- Способы связи -->
+<section>
+  <h2>Как с нами связаться</h2>
+  <p class="subtitle">Отвечаем быстро в любом удобном канале</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="icon">✆</div>
+      <h3>Телефон</h3>
+      <a href="tel:+79000000000">+7 (900) 000-00-00</a>
+      <p>ежедневно с 9:00 до 20:00</p>
+    </div>
+    <div class="contact-card">
+      <div class="icon">✉</div>
+      <h3>Почта</h3>
+      <a href="mailto:info@loft-kitchen.ru">info@loft-kitchen.ru</a>
+      <p>ответим в течение рабочего дня</p>
+    </div>
+    <div class="contact-card">
+      <div class="icon">✎</div>
+      <h3>Мессенджеры</h3>
+      <p>+7 (900) 000-00-00</p>
+      <p>WhatsApp · Telegram</p>
+    </div>
+    <div class="contact-card">
+      <div class="icon">◎</div>
+      <h3>Соцсети</h3>
+      <p>ВКонтакте · Одноклассники</p>
+      <p>там же — наши работы и отзывы</p>
+    </div>
+  </div>
+</section>
+
+<!-- Адрес и часы работы -->
+<section style="padding-top: 0;">
+  <div class="info-wrap">
+    <div class="info-block">
+      <h3>Наш салон</h3>
+      <p><strong>Адрес:</strong> г. Челябинск, ул. Косарева, 24, ТЦ «Арбат», 2 этаж</p>
+      <p><strong>Проезд:</strong> автобусы 14, 15, 34, 64 до остановки «Улица Косарева»</p>
+      <p><strong>Парковка:</strong> бесплатная у входа в ТЦ</p>
+      <p style="margin-top:16px;">В салоне — стенды с образцами фасадов, столешниц,
+         фурнитуры Blum и полный каталог наших проектов.</p>
+    </div>
+    <div class="info-block">
+      <h3>Часы работы</h3>
+      <table class="schedule">
+        <tr><td>Понедельник — пятница</td><td>9:00 — 20:00</td></tr>
+        <tr><td>Суббота</td><td>10:00 — 19:00</td></tr>
+        <tr><td>Воскресенье</td><td>10:00 — 17:00</td></tr>
+      </table>
+      <p style="margin-top:16px;">Замерщика можно вызвать и вне графика —
+         подберём удобное время по телефону.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Карта -->
+<section class="map-section">
+  <h2>Как нас найти</h2>
+  <p class="subtitle">Салон в ТЦ «Арбат», второй этаж</p>
+  <div class="map-wrap">
+    <iframe src="https://yandex.ru/map-widget/v1/?ll=61.316%2C55.155&z=15&text=Челябинск%2C%20улица%20Косарева%2C%2024" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- Форма обратной связи -->
+<section class="form-section" id="feedback">
+  <div class="form-wrap">
+    <h2>Напишите нам</h2>
+    <p class="subtitle">Задайте вопрос — перезвоним или ответим на почту</p>
+    <form onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <label for="name">Ваше имя</label>
+        <input type="text" id="name" required placeholder="Анна">
+      </div>
+      <div class="form-row">
+        <label for="phone">Телефон</label>
+        <input type="tel" id="phone" required placeholder="+7 (___) ___-__-__">
+      </div>
+      <div class="form-row">
+        <label for="topic">Тема обращения</label>
+        <select id="topic">
+          <option selected>Заказ кухни</option>
+          <option>Дизайн-проект</option>
+          <option>Гарантия и сервис</option>
+          <option>Сотрудничество</option>
+          <option>Другое</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="message">Сообщение</label>
+        <textarea id="message" placeholder="Ваш вопрос…"></textarea>
+      </div>
+      <div class="checkbox-row">
+        <input type="checkbox" id="agree" required>
+        <label for="agree" style="margin:0;">Согласен на обработку персональных данных</label>
+      </div>
+      <button type="submit">Отправить сообщение</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © 2026 Кухни «Лофт&amp;Дерево» · тел. +7 (900) 000-00-00 · г. Челябинск
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    alert(`Спасибо, ${name}! Мы получили ваше сообщение и скоро ответим.`);
+    e.target.reset();
+  }
+</script>
+
+</body>
+</html>
