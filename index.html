@@ -1,180 +1,163 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kitchen Studio — кухни на заказ и дизайн-проекты</title>
   <style>
     :root {
-  --header-bg: #3a3f4e;          
-  --text-main: #f5f6fa;          
-  --text-muted: #bcc2cc;        
-  --accent-orange: #ff8c00;      
-  --accent-hover: #e67e00;       
-}
+      --accent: #b07d4f;
+      --dark: #2b2b2b;
+      --bg: #f7f4f0;
+      --card: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+    }
 
-.header {
-  background-color: var(--header-bg);
-  padding: 0;
-  margin: 0;
-}
+    
+    header {
+      background: var(--dark);
+      color: #fff;
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .logo {
+      font-size: 26px;
+      letter-spacing: 2px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .logo span { color: var(--accent); }
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      opacity: .85;
+    }
+    header nav a:hover { opacity: 1; color: var(--accent); }
 
-.header__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+  
+    .hero {
+      background-image: url("images/33211f18e66e11f18daba2d9c9abc235_1.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(20, 18, 15, .55);
+    }
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      padding: 120px 5%;
+    }
+    .hero__title {
+      font-size: 44px;
+      letter-spacing: 1px;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, .6);
+      margin-bottom: 24px;
+    }
+    .hero__subtitle {
+      font-size: 20px;
+      color: #efe9e2;
+      margin-bottom: 48px;
+    }
+    .hero__title--sub {
+      font-size: 26px;
+      letter-spacing: 2px;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .hero__title--sub::after {
+      content: "";
+      display: block;
+      width: 64px;
+      height: 3px;
+      margin-top: 10px;
+      border-radius: 2px;
+      background: var(--accent);
+    }
+    .hero__list {
+      list-style: none;
+      font-size: 20px;
+      line-height: 1.5;
+      color: #efe9e2;
+    }
+    .hero__list li {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(176, 125, 79, .45);
+    }
+    .hero__list li:last-child { border-bottom: none; }
+    .hero__list li::before {
+      content: "—";
+      color: var(--accent);
+      margin-right: 12px;
+      font-weight: 700;
+    }
 
-.header__inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 80px; 
-}
+    
+    footer {
+      background: var(--dark);
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
 
-.body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-}
-
- .logo {
-  font-family: "Inter", "Roboto", sans-serif;
-  font-weight: 700;
-  font-size: 24px;
-  color: var(--text-main);
-  text-decoration: none;
-  letter-spacing: -0.5px;
-}
-
-.logo span {
-  color: var(--accent-orange); 
-}
-
-.nav {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-}
-
-.nav a {
-  text-decoration: none;
-  color: var(--text-muted);
-  font-family: "Inter", "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.nav a:hover,
-.nav a.active {
-  color: var(--text-main);
-  text-shadow: 0 0 8px rgba(255, 140, 0, 0.4); 
-}
-
-
-@media (max-width: 768px) {
-  .header__inner {
-    flex-direction: column;
-    height: auto;
-    padding: 16px 0;
-  }
-
-  .nav {
-    margin-top: 16px;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .logo {
-    font-size: 20px;
-  }
-}
-
-.hero {
-  background-image: url("images/33211f18e66e11f18daba2d9c9abc235_1.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; 
-  min-height: 100vh;
-  position: relative;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(10, 12, 16, 0.45); 
-}
-
-.hero__content {
-  position: relative;
-  z-index: 1;
-  max-width: 600px;
-  padding: 120px 60px;
-}
-
-.hero__title {
-  font-family: "Inter", "Roboto", Arial, sans-serif;
-  font-weight: 700;
-  font-size: 48px;
-  color: #fff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-  margin-bottom: 40px;
-}
-
-.hero__list {
-  list-style: none;
-  font-family: "Inter", "Roboto", Arial, sans-serif;
-  font-size: 22px;
-  line-height: 1.5;
-  color: #e8ebef;
-}
-
-.hero__list li {
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(168, 192, 214, 0.5);
-}
-
-.hero__list li:last-child {
-  border-bottom: none;
-}
-
+    @media (max-width: 600px) {
+      header { justify-content: center; text-align: center; }
+      .hero__title { font-size: 32px; }
+      .hero__subtitle { font-size: 17px; }
+      .hero__list { font-size: 17px; }
+    }
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="header__container">
-      <div class="header__inner">
-        <a href="/" class="logo">Kitchen<span>Studio</span></a>
-        <nav class="nav">
-          <a href="catalog.html">Каталог кухонь</a>
-          <a href="design.html">Дизайн-проект</a>
-          <a href="contacts.html">Контакты</a>
-        </nav>
-      </div>
-    </div>
+
+  <header>
+    <a href="/" class="logo">Kitchen<span>Studio</span></a>
+    <nav>
+      <a href="catalog.html">Каталог кухонь</a>
+      <a href="design.html">Дизайн-проект</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
   </header>
+
   <main>
     <section class="hero">
       <div class="hero__content">
-        <ul class="hero__list">
-    <h1 class="hero__title">Кухни на заказ с дизайнерским подходом</h1> 
+        <h1 class="hero__title">Кухни на заказ с дизайнерским подходом</h1>
         <p class="hero__subtitle">Спроектируем и соберём кухню, которая будет удобной именно для вас.</p>
-    <fieldset>
-      <h2 class="hero__title">Почему именно мы?</h2>
+        <h2 class="hero__title hero__title--sub">Почему именно мы?</h2>
+        <ul class="hero__list">
           <li>Удобство и простота</li>
           <li>Индивидуальный подход</li>
           <li>Самые выгодные предложения на рынке</li>
-        </fieldset>
         </ul>
       </div>
-<footer>
-  РАБОТА ДЛЯ ПОРТФОЛИО №1
-</footer>
     </section>
   </main>
+
+  <footer id="contacts">
+    РАБОТА ДЛЯ ПОРТФОЛИО №1
+  </footer>
+
 </body>
 </html>
+
